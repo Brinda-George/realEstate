@@ -1,0 +1,40 @@
+﻿@model RealEstate.Models.PropertySearch
+@using RealEstate.Extensions
+@{
+    ViewBag.Title = "Description";
+}
+<div>
+    <dl class="dl-horizontal">        
+        <dd>
+            @Html.Image(Model.path, "alt", "500", "800")
+        </dd>   
+        <dt>
+           Location
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt>
+           Property Type
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            Price
+        </dt>
+
+        <dd>
+            Rs.@Html.DisplayFor(model => model.price)
+        </dd>
+
+    </dl>
+    <div style="float:right;">
+        @Html.Action("Enquiry", "RealEstate")
+    </div>
+</div>
+

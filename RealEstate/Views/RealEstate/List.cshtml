@@ -1,0 +1,27 @@
+﻿@model IEnumerable<RealEstate.Models.PropertySearch>
+
+
+
+@using RealEstate.Extensions
+
+<table class="table">
+    
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.Image(item.path, "alt", "220", "280")
+                 </td>
+                <td>
+                    Location:@Html.DisplayFor(modelItem => item.location)<br />
+                    Property Type:@Html.DisplayFor(modelItem => item.type)<br>
+                    Price:Rs.@Html.DisplayFor(modelItem => item.price)<br />
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Description", new { id = item.id })
+                </td>                
+            </tr>
+
+        }
+            
+</table>

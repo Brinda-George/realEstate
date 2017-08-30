@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RealEstate.Models.PropertySearch>
+
+@using RealEstate.Extensions
+
+@using (Html.BeginForm("Description", "RealEstate"))
+{
+    int count = 0;
+<div>
+
+
+        @foreach (var item in Model)
+        {
+
+            count++;
+            <div class="container col-md-3">
+                @Html.Image(item.path, "alt", "220", "280")
+                <div>
+                    @Html.DisplayFor(modelItem => item.location)<br />
+                    @Html.DisplayFor(modelItem => item.type)<br>
+                    Rs. @Html.DisplayFor(modelItem => item.price)<br />
+                    @Html.ActionLink("View", "Description", new { id = item.id })
+                </div>
+            </div>
+
+            if (count == 4)
+            {
+                count = 0;
+
+
+            }
+
+        }
+
+    </div>
+}
+
+
+
+
